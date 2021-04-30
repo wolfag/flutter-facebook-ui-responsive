@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook/config/palette.dart';
 import 'package:flutter_facebook/models/models.dart';
+import 'package:flutter_facebook/widgets/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class MoreOptionsList extends StatelessWidget {
@@ -30,6 +31,9 @@ class MoreOptionsList extends StatelessWidget {
           if (index == 0) {
             return Padding(
               padding: EdgeInsets.symmetric(vertical: 8),
+              child: UserCard(
+                user: currentUser,
+              ),
             );
           }
           final List option = _moreOptionsList[index - 1];
