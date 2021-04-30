@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook/config/palette.dart';
-import 'package:flutter_facebook/data/data.dart';
-import 'package:flutter_facebook/models/post.dart';
-import 'package:flutter_facebook/widgets/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../config/palette.dart';
+import '../data/data.dart';
+import '../models/post.dart';
+import '../widgets/widgets.dart';
+
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key key}) : super(key: key);
+  const HomeScreen({Key key}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -45,9 +46,10 @@ class _HomeScreenState extends State<HomeScreen> {
 class _HomeScreenMobile extends StatelessWidget {
   final TrackingScrollController trackingScrollController;
 
+  // ignore: sort_constructors_first
   const _HomeScreenMobile({
-    Key key,
     @required this.trackingScrollController,
+    Key key,
   }) : super(key: key);
 
   @override
@@ -58,7 +60,7 @@ class _HomeScreenMobile extends StatelessWidget {
         SliverAppBar(
           brightness: Brightness.light,
           backgroundColor: Colors.white,
-          title: Text(
+          title: const Text(
             'facebook',
             style: TextStyle(
               color: Palette.facebookBlue,
@@ -82,19 +84,19 @@ class _HomeScreenMobile extends StatelessWidget {
             ),
           ],
         ),
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: CreatePostContainer(
             currentUser: currentUser,
           ),
         ),
         SliverPadding(
-          padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+          padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
           sliver: SliverToBoxAdapter(
             child: Rooms(onlineUsers: onlineUsers),
           ),
         ),
         SliverPadding(
-          padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+          padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
           sliver: SliverToBoxAdapter(
             child: Stories(
               currentUser: currentUser,
@@ -105,7 +107,7 @@ class _HomeScreenMobile extends StatelessWidget {
         SliverList(
           delegate: SliverChildBuilderDelegate(
             (context, index) {
-              final Post post = posts[index];
+              final post = posts[index];
               return PostContainer(
                 post: post,
               );
@@ -120,16 +122,18 @@ class _HomeScreenMobile extends StatelessWidget {
 
 class _HomeScreenDesktop extends StatelessWidget {
   final TrackingScrollController trackingScrollController;
+
+  // ignore: sort_constructors_first
   const _HomeScreenDesktop({
-    Key key,
     @required this.trackingScrollController,
+    Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Flexible(
+        const Flexible(
           flex: 2,
           child: Align(
             alignment: Alignment.centerLeft,
@@ -141,7 +145,7 @@ class _HomeScreenDesktop extends StatelessWidget {
             ),
           ),
         ),
-        Spacer(),
+        const Spacer(),
         Container(
           width: 600,
           child: CustomScrollView(
@@ -179,16 +183,16 @@ class _HomeScreenDesktop extends StatelessWidget {
             ],
           ),
         ),
-        Spacer(),
+        const Spacer(),
         Flexible(
           flex: 2,
           child: Align(
             alignment: Alignment.centerRight,
             child: Padding(
+              padding: const EdgeInsets.all(12),
               child: ContactsList(
                 users: onlineUsers,
               ),
-              padding: EdgeInsets.all(12),
             ),
           ),
         ),

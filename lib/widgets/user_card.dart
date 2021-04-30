@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook/models/models.dart';
-import 'package:flutter_facebook/widgets/profile_avatar.dart';
+
+import '../models/models.dart';
+import 'profile_avatar.dart';
 
 class UserCard extends StatelessWidget {
   final User user;
 
+  // ignore: sort_constructors_first
   const UserCard({
-    Key key,
     @required this.user,
+    Key key,
   }) : super(key: key);
 
   @override
@@ -18,13 +20,13 @@ class UserCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           ProfileAvatar(imageUrl: user.imageUrl),
-          SizedBox(
+          const SizedBox(
             width: 6,
           ),
           Flexible(
             child: Text(
               user.name,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
               overflow: TextOverflow.ellipsis,
             ),
           ),

@@ -1,18 +1,20 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook/config/palette.dart';
-import 'package:flutter_facebook/models/models.dart';
-import 'package:flutter_facebook/widgets/widgets.dart';
+
+import '../config/palette.dart';
+import '../models/models.dart';
+import 'widgets.dart';
 
 class Stories extends StatelessWidget {
   final User currentUser;
   final List<Story> stories;
 
+  // ignore: sort_constructors_first
   const Stories({
-    Key key,
     @required this.currentUser,
     @required this.stories,
+    Key key,
   }) : super(key: key);
 
   @override
@@ -22,7 +24,7 @@ class Stories extends StatelessWidget {
       height: 200,
       color: isDesktop ? Colors.transparent : Colors.white,
       child: ListView.builder(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           vertical: 10,
           horizontal: 8,
         ),
@@ -31,16 +33,16 @@ class Stories extends StatelessWidget {
         itemBuilder: (context, index) {
           if (index == 0) {
             return Padding(
-              padding: EdgeInsets.symmetric(horizontal: 4),
+              padding: const EdgeInsets.symmetric(horizontal: 4),
               child: _StoryCard(
                 isAddStory: true,
                 currentUser: currentUser,
               ),
             );
           }
-          final Story story = stories[index - 1];
+          final story = stories[index - 1];
           return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 4),
+            padding: const EdgeInsets.symmetric(horizontal: 4),
             child: _StoryCard(
               story: story,
             ),
@@ -56,6 +58,7 @@ class _StoryCard extends StatelessWidget {
   final User currentUser;
   final Story story;
 
+  // ignore: sort_constructors_first
   const _StoryCard({
     Key key,
     this.isAddStory = false,
@@ -85,7 +88,7 @@ class _StoryCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             boxShadow: isDesktop
                 ? [
-                    BoxShadow(
+                    const BoxShadow(
                       color: Colors.black26,
                       offset: Offset(0, 2),
                       blurRadius: 4,
@@ -101,13 +104,13 @@ class _StoryCard extends StatelessWidget {
               ? Container(
                   height: 40,
                   width: 40,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.circle,
                   ),
                   child: IconButton(
                     padding: EdgeInsets.zero,
-                    icon: Icon(Icons.add),
+                    icon: const Icon(Icons.add),
                     iconSize: 30,
                     color: Palette.facebookBlue,
                     onPressed: () => print('Add to story'),
@@ -124,7 +127,7 @@ class _StoryCard extends StatelessWidget {
           right: 8,
           child: Text(
             isAddStory ? 'Add to Story' : story.user.name,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),

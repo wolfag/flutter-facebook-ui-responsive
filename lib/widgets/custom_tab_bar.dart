@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook/config/palette.dart';
+import '../config/palette.dart';
 
 class CustomTabBar extends StatelessWidget {
   final List<IconData> icons;
@@ -8,11 +8,12 @@ class CustomTabBar extends StatelessWidget {
   final Function(int) onTap;
   final bool isBottomIndicator;
 
+  // ignore: sort_constructors_first
   const CustomTabBar({
-    Key key,
     @required this.icons,
     @required this.selectedIndex,
     @required this.onTap,
+    Key key,
     this.isBottomIndicator = false,
   }) : super(key: key);
 
@@ -21,13 +22,13 @@ class CustomTabBar extends StatelessWidget {
     return TabBar(
       indicator: BoxDecoration(
         border: isBottomIndicator
-            ? Border(
+            ? const Border(
                 bottom: BorderSide(
                   color: Palette.facebookBlue,
                   width: 3,
                 ),
               )
-            : Border(
+            : const Border(
                 top: BorderSide(
                   color: Palette.facebookBlue,
                   width: 3,

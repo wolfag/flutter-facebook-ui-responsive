@@ -5,11 +5,12 @@ class CircleButton extends StatelessWidget {
   final double iconSize;
   final Function onPressed;
 
+  // ignore: sort_constructors_first
   const CircleButton({
-    Key key,
     @required this.icon,
     @required this.iconSize,
     @required this.onPressed,
+    Key key,
   }) : super(key: key);
 
   @override

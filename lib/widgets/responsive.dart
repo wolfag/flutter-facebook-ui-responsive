@@ -5,11 +5,12 @@ class Responsive extends StatelessWidget {
   final Widget tablet;
   final Widget desktop;
 
+  // ignore: sort_constructors_first
   const Responsive({
-    Key key,
     @required this.mobile,
-    this.tablet,
     @required this.desktop,
+    Key key,
+    this.tablet,
   }) : super(key: key);
 
   static bool isMobile(BuildContext context) {

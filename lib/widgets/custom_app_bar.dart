@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook/config/palette.dart';
-import 'package:flutter_facebook/models/models.dart';
-import 'package:flutter_facebook/widgets/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
+import '../config/palette.dart';
+import '../models/models.dart';
+import 'widgets.dart';
 
 class CustomAppBar extends StatelessWidget {
   final User currentUser;
@@ -10,20 +11,21 @@ class CustomAppBar extends StatelessWidget {
   final int selectedIndex;
   final Function(int) onTap;
 
+  // ignore: sort_constructors_first
   const CustomAppBar({
-    Key key,
-    @required this.currentUser,
     @required this.icons,
+    @required this.currentUser,
     @required this.selectedIndex,
     @required this.onTap,
+    Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       height: 65,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         boxShadow: [
           BoxShadow(
@@ -36,7 +38,7 @@ class CustomAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(
+          const Expanded(
             child: Text(
               'facebook',
               style: TextStyle(
@@ -62,7 +64,7 @@ class CustomAppBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 UserCard(user: currentUser),
-                SizedBox(
+                const SizedBox(
                   width: 12,
                 ),
                 CircleButton(

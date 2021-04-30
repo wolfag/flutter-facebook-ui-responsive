@@ -1,20 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook/config/palette.dart';
-import 'package:flutter_facebook/models/story.dart';
-import 'package:flutter_facebook/widgets/widgets.dart';
+
+import '../config/palette.dart';
+import '../models/story.dart';
+import 'widgets.dart';
 
 class Rooms extends StatelessWidget {
   final List<User> onlineUsers;
 
+  // ignore: sort_constructors_first
   const Rooms({
-    Key key,
     @required this.onlineUsers,
+    Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final bool isDesktop = Responsive.isDesktop(context);
+    final isDesktop = Responsive.isDesktop(context);
 
     return Card(
       margin: EdgeInsets.symmetric(horizontal: isDesktop ? 5 : 0),
@@ -28,7 +30,7 @@ class Rooms extends StatelessWidget {
         height: 60,
         color: Colors.white,
         child: ListView.builder(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             vertical: 10,
             horizontal: 4,
           ),
@@ -36,14 +38,14 @@ class Rooms extends StatelessWidget {
           itemCount: 1 + onlineUsers.length,
           itemBuilder: (context, index) {
             if (index == 0) {
-              return Padding(
+              return const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8),
                 child: _CreateRoomButton(),
               );
             }
-            final User user = onlineUsers[index - 1];
+            final user = onlineUsers[index - 1];
             return Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
               child: ProfileAvatar(
                 imageUrl: user.imageUrl,
                 isActive: true,
@@ -68,7 +70,7 @@ class _CreateRoomButton extends StatelessWidget {
           width: 3,
           color: Colors.blueAccent[100],
         ),
-        textStyle: TextStyle(
+        textStyle: const TextStyle(
           color: Palette.facebookBlue,
         ),
         backgroundColor: Colors.white,
@@ -77,16 +79,17 @@ class _CreateRoomButton extends StatelessWidget {
         ),
       ),
       child: Row(
+        // ignore: prefer_const_literals_to_create_immutables
         children: [
-          Icon(
+          const Icon(
             Icons.video_call,
             size: 35,
             color: Colors.purple,
           ),
-          SizedBox(
+          const SizedBox(
             width: 4,
           ),
-          Text('Create\nRoom')
+          const Text('Create\nRoom')
         ],
       ),
     );

@@ -1,5 +1,6 @@
-import 'package:flutter_facebook/models/story.dart';
 import 'package:meta/meta.dart';
+
+import 'story.dart';
 
 class Post {
   final User user;
@@ -10,6 +11,7 @@ class Post {
   final int comments;
   final int shares;
 
+  // ignore: sort_constructors_first
   const Post({
     @required this.user,
     @required this.caption,

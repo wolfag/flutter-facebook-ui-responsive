@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook/data/data.dart';
-import 'package:flutter_facebook/screens/home.dart';
-import 'package:flutter_facebook/widgets/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../data/data.dart';
+import '../widgets/widgets.dart';
+import 'home.dart';
+
 class NavScreens extends StatefulWidget {
-  NavScreens({Key key}) : super(key: key);
+  const NavScreens({Key key}) : super(key: key);
 
   @override
   _NavScreensState createState() => _NavScreensState();
@@ -14,12 +15,12 @@ class NavScreens extends StatefulWidget {
 
 class _NavScreensState extends State<NavScreens> {
   final List<Widget> _screens = [
-    HomeScreen(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
+    const HomeScreen(),
+    const Scaffold(),
+    const Scaffold(),
+    const Scaffold(),
+    const Scaffold(),
+    const Scaffold(),
   ];
   final List<IconData> _icons = [
     Icons.home,
@@ -33,7 +34,7 @@ class _NavScreensState extends State<NavScreens> {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
+    final screenSize = MediaQuery.of(context).size;
     final isDesktop = Responsive.isDesktop(context);
 
     return DefaultTabController(
@@ -41,6 +42,7 @@ class _NavScreensState extends State<NavScreens> {
       child: Scaffold(
         appBar: isDesktop
             ? PreferredSize(
+                preferredSize: Size(screenSize.width, 100),
                 child: CustomAppBar(
                   currentUser: currentUser,
                   icons: _icons,
@@ -49,7 +51,7 @@ class _NavScreensState extends State<NavScreens> {
                     _selectedIndex = index;
                   }),
                 ),
-                preferredSize: Size(screenSize.width, 100))
+              )
             : null,
         body: IndexedStack(
           index: _selectedIndex,
@@ -57,7 +59,7 @@ class _NavScreensState extends State<NavScreens> {
         ),
         bottomNavigationBar: !isDesktop
             ? Container(
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   bottom: 12,
                 ),
                 color: Colors.white,
@@ -71,7 +73,7 @@ class _NavScreensState extends State<NavScreens> {
                   },
                 ),
               )
-            : SizedBox.shrink(),
+            : const SizedBox.shrink(),
       ),
     );
   }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook/config/palette.dart';
-import 'package:flutter_facebook/models/models.dart';
-import 'package:flutter_facebook/widgets/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
+import '../config/palette.dart';
+import '../models/models.dart';
+import 'widgets.dart';
 
 class MoreOptionsList extends StatelessWidget {
   final User currentUser;
@@ -16,29 +17,30 @@ class MoreOptionsList extends StatelessWidget {
     [MdiIcons.calendarStar, Colors.red, 'Events']
   ];
 
+  // ignore: sort_constructors_first
   const MoreOptionsList({
-    Key key,
     @required this.currentUser,
+    Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxWidth: 280),
+      constraints: const BoxConstraints(maxWidth: 280),
       child: ListView.builder(
         itemCount: 1 + _moreOptionsList.length,
         itemBuilder: (context, index) {
           if (index == 0) {
             return Padding(
-              padding: EdgeInsets.symmetric(vertical: 8),
+              padding: const EdgeInsets.symmetric(vertical: 8),
               child: UserCard(
                 user: currentUser,
               ),
             );
           }
-          final List option = _moreOptionsList[index - 1];
+          final option = _moreOptionsList[index - 1];
           return Padding(
-            padding: EdgeInsets.symmetric(vertical: 8),
+            padding: const EdgeInsets.symmetric(vertical: 8),
             child: _Option(
               icon: option[0],
               color: option[1],
@@ -56,11 +58,12 @@ class _Option extends StatelessWidget {
   final Color color;
   final String label;
 
+  // ignore: sort_constructors_first
   const _Option({
-    Key key,
     @required this.icon,
     @required this.color,
     @required this.label,
+    Key key,
   }) : super(key: key);
 
   @override
@@ -74,13 +77,13 @@ class _Option extends StatelessWidget {
             size: 28,
             color: color,
           ),
-          SizedBox(
+          const SizedBox(
             width: 6,
           ),
           Flexible(
             child: Text(
               label,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
               overflow: TextOverflow.ellipsis,
             ),
           ),

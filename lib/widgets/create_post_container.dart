@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook/models/models.dart';
-import 'package:flutter_facebook/widgets/widgets.dart';
+import '../models/models.dart';
+import 'widgets.dart';
 
 class CreatePostContainer extends StatelessWidget {
   final User currentUser;
 
+  // ignore: sort_constructors_first
   const CreatePostContainer({
-    Key key,
     @required this.currentUser,
+    Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final bool isDesktop = Responsive.isDesktop(context);
+    final isDesktop = Responsive.isDesktop(context);
     return Card(
       margin: EdgeInsets.symmetric(horizontal: isDesktop ? 5 : 0),
       elevation: isDesktop ? 1 : 0,
@@ -22,17 +23,17 @@ class CreatePostContainer extends StatelessWidget {
             )
           : null,
       child: Container(
-        padding: EdgeInsets.fromLTRB(12, 8, 12, 8),
+        padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
         color: Colors.white,
         child: Column(
           children: [
             Row(
               children: [
                 ProfileAvatar(imageUrl: currentUser.imageUrl),
-                SizedBox(
+                const SizedBox(
                   width: 8,
                 ),
-                Expanded(
+                const Expanded(
                   child: TextField(
                     decoration: InputDecoration.collapsed(
                         hintText: "What's on your mind?"),
@@ -40,7 +41,7 @@ class CreatePostContainer extends StatelessWidget {
                 ),
               ],
             ),
-            Divider(
+            const Divider(
               height: 10,
               thickness: 0.5,
             ),
@@ -50,31 +51,31 @@ class CreatePostContainer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   TextButton.icon(
-                    onPressed: () => print("Live"),
-                    icon: Icon(
+                    onPressed: () => print('Live'),
+                    icon: const Icon(
                       Icons.videocam,
                       color: Colors.red,
                     ),
-                    label: Text('Live'),
+                    label: const Text('Live'),
                   ),
-                  VerticalDivider(
+                  const VerticalDivider(
                     width: 8,
                   ),
                   TextButton.icon(
                     onPressed: () => print('Photo'),
-                    icon: Icon(Icons.photo_library, color: Colors.green),
-                    label: Text('Photo'),
+                    icon: const Icon(Icons.photo_library, color: Colors.green),
+                    label: const Text('Photo'),
                   ),
-                  VerticalDivider(
+                  const VerticalDivider(
                     width: 8,
                   ),
                   TextButton.icon(
                     onPressed: () => print('Room'),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.video_call,
                       color: Colors.purpleAccent,
                     ),
-                    label: Text('Room'),
+                    label: const Text('Room'),
                   ),
                 ],
               ),
